@@ -5,10 +5,16 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 public class InputManager
 {
     private KeyboardState keyboardState;
+    private GameWindow window;
 
+
+    public InputManager(GameWindow gameWindow)
+    {
+        window = gameWindow;
+    }
     public void Update()
     {
-        keyboardState = GLFW.GetKey(OpenTK.Windowing.Desktop.NativeWindowSettings.Default.Handle);
+        keyboardState = window.KeyboardState;
     }
     
     public static void HandleInput(GameWindow window)

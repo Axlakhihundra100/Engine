@@ -44,14 +44,14 @@ namespace Engine.Engine
             GL.UseProgram(shaderProgram);
         }
 
-        public static void Render(Texture texture, Vector2 position)
+        public static void Render(Texture texture, Vector2 position, Vector2 scale)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit);
             texture.Bind();
             GL.UseProgram(shaderProgram);
             GL.BindVertexArray(vao);
 
-            Matrix4 model = Matrix4.CreateTranslation(new Vector3(position.X, position.Y, 0));
+            Matrix4 model = Matrix4.CreateTranslation(new Vector3(scale.X, scale.Y, 1))*Matrix4.CreateTranslation(new Vector3(position.X, position.Y, 0));
             int modelLoc = GL.GetUniformLocation(shaderProgram, "model");
             GL.UniformMatrix4(modelLoc, false, ref model);
             

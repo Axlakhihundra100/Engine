@@ -31,9 +31,9 @@ public class Character
         }
     }
 
-    public void draw()
+    public void Draw()
     {
-        Renderer.Render(Sprite, Position);
+        Renderer.Render(Sprite, Position, new Vector2(1.0f,1.0f));
     }
     
 }

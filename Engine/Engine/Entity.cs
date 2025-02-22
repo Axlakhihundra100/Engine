@@ -13,6 +13,6 @@ public class Entity
 
     public void Draw()
     {
-        Renderer.Render(Sprite);
+        Renderer.Render(Sprite, Position, new Vector2(1.0f,1.0f));
     }
 }
